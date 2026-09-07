@@ -4,36 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu - Warkop Mikita</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #F8FAFC; }
+        /* Sembunyikan scrollbar tapi tetap bisa di-swipe */
+        .scrollbar-none::-webkit-scrollbar { display: none; }
+        .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body class="max-w-md mx-auto bg-white min-h-screen shadow-xl flex flex-col justify-between relative">
 
+    <!-- HEADER / HERO -->
     <header class="bg-indigo-950 text-white p-6 rounded-b-3xl shadow-md text-center relative overflow-hidden">
         <div class="absolute -top-10 -left-10 w-32 h-32 bg-amber-400 rounded-full opacity-20 blur-xl"></div>
         <span class="text-amber-400 text-xs font-semibold tracking-widest uppercase bg-indigo-900/80 px-3 py-1 rounded-full">✨ Warkop Mikita</span>
         <h1 class="text-3xl font-bold mt-2 tracking-tight">Digital Menu</h1>
         <p class="text-xs text-indigo-200 mt-1">Pilih menu favoritmu langsung dari HP</p>
         
+        <!-- Input Nomor Meja -->
         <div class="mt-4 bg-indigo-900/60 p-2 rounded-xl flex items-center justify-between border border-indigo-800">
             <span class="text-xs text-indigo-300 ml-2">Nomor Meja:</span>
             <input type="text" id="tableNumber" value="03" class="w-16 bg-indigo-950 text-amber-400 font-bold text-center rounded-lg py-1 text-sm border border-indigo-700 focus:outline-none">
         </div>
     </header>
 
+    <!-- KATEGORI NAVIGASI -->
     <nav class="flex gap-2 p-4 overflow-x-auto whitespace-nowrap scrollbar-none border-b border-gray-100">
         <button onclick="filterMenu('all')" class="cat-btn px-4 py-2 rounded-full text-xs font-semibold bg-indigo-950 text-white transition shadow-sm">Semua</button>
-        <button onclick="filterMenu('makanan')" class="cat-btn px-4 py-2 rounded-full text-xs font-semibold bg-gray-100 text-gray-600 transition">Makanan Berat</button>
-        <button onclick="filterMenu('cemilan')" class="cat-btn px-4 py-2 rounded-full text-xs font-semibold bg-gray-100 text-gray-600 transition">Cemilan</button>
-        <button onclick="filterMenu('minuman')" class="cat-btn px-4 py-2 rounded-full text-xs font-semibold bg-gray-100 text-gray-600 transition">Minuman</button>
+        <button onclick="filterMenu('nasi')" class="cat-btn px-4 py-2 rounded-full text-xs font-semibold bg-gray-100 text-gray-600 transition">Nasi</button>
+        <button onclick="filterMenu('mie')" class="cat-btn px-4 py-2 rounded-full text-xs font-semibold bg-gray-100 text-gray-600 transition">Mie</button>
+        <button onclick="filterMenu('snack')" class="cat-btn px-4 py-2 rounded-full text-xs font-semibold bg-gray-100 text-gray-600 transition">Snack</button>
+        <button onclick="filterMenu('dingin')" class="cat-btn px-4 py-2 rounded-full text-xs font-semibold bg-gray-100 text-gray-600 transition">Minuman Dingin</button>
+        <button onclick="filterMenu('panas')" class="cat-btn px-4 py-2 rounded-full text-xs font-semibold bg-gray-100 text-gray-600 transition">Minuman Panas</button>
     </nav>
 
+    <!-- DAFTAR MENU (PRODUK) -->
     <main class="p-4 space-y-4 mb-24 overflow-y-auto flex-1">
         
-        <div class="menu-item flex items-center bg-white p-3 rounded-2xl border border-gray-100 shadow-sm gap-4" data-category="makanan">
+        <!-- KATEGORI: NASI -->
+        <div class="menu-item flex items-center bg-white p-3 rounded-2xl border border-gray-100 shadow-sm gap-4" data-category="nasi">
             <div class="w-20 h-20 bg-amber-100 rounded-xl overflow-hidden flex-shrink-0">
                 <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=300&auto=format&fit=crop&q=80" alt="Nasi Goreng" class="w-full h-full object-cover">
             </div>
@@ -47,7 +58,7 @@
             </div>
         </div>
 
-        <div class="menu-item flex items-center bg-white p-3 rounded-2xl border border-gray-100 shadow-sm gap-4" data-category="makanan">
+        <div class="menu-item flex items-center bg-white p-3 rounded-2xl border border-gray-100 shadow-sm gap-4" data-category="nasi">
             <div class="w-20 h-20 bg-amber-100 rounded-xl overflow-hidden flex-shrink-0">
                 <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=300&auto=format&fit=crop&q=80" alt="Nasi Goreng Gila" class="w-full h-full object-cover">
             </div>
@@ -61,7 +72,37 @@
             </div>
         </div>
 
-        <div class="menu-item flex items-center bg-white p-3 rounded-2xl border border-gray-100 shadow-sm gap-4" data-category="cemilan">
+        <!-- KATEGORI: MIE -->
+        <div class="menu-item flex items-center bg-white p-3 rounded-2xl border border-gray-100 shadow-sm gap-4" data-category="mie">
+            <div class="w-20 h-20 bg-amber-100 rounded-xl overflow-hidden flex-shrink-0">
+                <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300&auto=format&fit=crop&q=80" alt="Mie Goreng Warkop" class="w-full h-full object-cover">
+            </div>
+            <div class="flex-1">
+                <h3 class="font-bold text-gray-800 text-sm">Mie Goreng Telur</h3>
+                <p class="text-gray-400 text-[11px] line-clamp-1 mt-0.5">Mie instan digoreng dengan sayuran dan telur matang/setengah.</p>
+                <div class="flex items-center justify-between mt-2">
+                    <span class="font-bold text-indigo-950 text-sm">Rp 13.000</span>
+                    <button onclick="addToCart('Mie Goreng Telur', 13000)" class="bg-amber-400 hover:bg-amber-500 text-indigo-950 font-bold px-3 py-1.5 rounded-xl text-xs shadow-sm transition active:scale-95">+ Tambah</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-item flex items-center bg-white p-3 rounded-2xl border border-gray-100 shadow-sm gap-4" data-category="mie">
+            <div class="w-20 h-20 bg-amber-100 rounded-xl overflow-hidden flex-shrink-0">
+                <img src="https://images.unsplash.com/photo-1552611052-33e04de081de?w=300&auto=format&fit=crop&q=80" alt="Mie Rebus" class="w-full h-full object-cover">
+            </div>
+            <div class="flex-1">
+                <h3 class="font-bold text-gray-800 text-sm">Mie Rebus Kuah Kari</h3>
+                <p class="text-gray-400 text-[11px] line-clamp-1 mt-0.5">Kuah kental gurih dengan tambahan cabai rawit iris.</p>
+                <div class="flex items-center justify-between mt-2">
+                    <span class="font-bold text-indigo-950 text-sm">Rp 12.000</span>
+                    <button onclick="addToCart('Mie Rebus Kuah Kari', 12000)" class="bg-amber-400 hover:bg-amber-500 text-indigo-950 font-bold px-3 py-1.5 rounded-xl text-xs shadow-sm transition active:scale-95">+ Tambah</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- KATEGORI: SNACK -->
+        <div class="menu-item flex items-center bg-white p-3 rounded-2xl border border-gray-100 shadow-sm gap-4" data-category="snack">
             <div class="w-20 h-20 bg-amber-100 rounded-xl overflow-hidden flex-shrink-0">
                 <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=300&auto=format&fit=crop&q=80" alt="Kentang Goreng" class="w-full h-full object-cover">
             </div>
@@ -75,7 +116,22 @@
             </div>
         </div>
 
-        <div class="menu-item flex items-center bg-white p-3 rounded-2xl border border-gray-100 shadow-sm gap-4" data-category="minuman">
+        <div class="menu-item flex items-center bg-white p-3 rounded-2xl border border-gray-100 shadow-sm gap-4" data-category="snack">
+            <div class="w-20 h-20 bg-amber-100 rounded-xl overflow-hidden flex-shrink-0">
+                <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=300&auto=format&fit=crop&q=80" alt="Roti Bakar" class="w-full h-full object-cover">
+            </div>
+            <div class="flex-1">
+                <h3 class="font-bold text-gray-800 text-sm">Roti Bakar Coklat Keju</h3>
+                <p class="text-gray-400 text-[11px] line-clamp-1 mt-0.5">Roti tebal dengan olesan selai coklat dan taburan keju.</p>
+                <div class="flex items-center justify-between mt-2">
+                    <span class="font-bold text-indigo-950 text-sm">Rp 15.000</span>
+                    <button onclick="addToCart('Roti Bakar Coklat Keju', 15000)" class="bg-amber-400 hover:bg-amber-500 text-indigo-950 font-bold px-3 py-1.5 rounded-xl text-xs shadow-sm transition active:scale-95">+ Tambah</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- KATEGORI: MINUMAN DINGIN -->
+        <div class="menu-item flex items-center bg-white p-3 rounded-2xl border border-gray-100 shadow-sm gap-4" data-category="dingin">
             <div class="w-20 h-20 bg-amber-100 rounded-xl overflow-hidden flex-shrink-0">
                 <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=300&auto=format&fit=crop&q=80" alt="Es Teh Manis" class="w-full h-full object-cover">
             </div>
@@ -89,8 +145,52 @@
             </div>
         </div>
 
+        <div class="menu-item flex items-center bg-white p-3 rounded-2xl border border-gray-100 shadow-sm gap-4" data-category="dingin">
+            <div class="w-20 h-20 bg-amber-100 rounded-xl overflow-hidden flex-shrink-0">
+                <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=300&auto=format&fit=crop&q=80" alt="Es Jeruk" class="w-full h-full object-cover">
+            </div>
+            <div class="flex-1">
+                <h3 class="font-bold text-gray-800 text-sm">Es Jeruk Peras</h3>
+                <p class="text-gray-400 text-[11px] line-clamp-1 mt-0.5">Jeruk segar diperas langsung dengan es batu.</p>
+                <div class="flex items-center justify-between mt-2">
+                    <span class="font-bold text-indigo-950 text-sm">Rp 7.000</span>
+                    <button onclick="addToCart('Es Jeruk Peras', 7000)" class="bg-amber-400 hover:bg-amber-500 text-indigo-950 font-bold px-3 py-1.5 rounded-xl text-xs shadow-sm transition active:scale-95">+ Tambah</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- KATEGORI: MINUMAN PANAS -->
+        <div class="menu-item flex items-center bg-white p-3 rounded-2xl border border-gray-100 shadow-sm gap-4" data-category="panas">
+            <div class="w-20 h-20 bg-amber-100 rounded-xl overflow-hidden flex-shrink-0">
+                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=300&auto=format&fit=crop&q=80" alt="Kopi Hitam" class="w-full h-full object-cover">
+            </div>
+            <div class="flex-1">
+                <h3 class="font-bold text-gray-800 text-sm">Kopi Tubruk Hitam</h3>
+                <p class="text-gray-400 text-[11px] line-clamp-1 mt-0.5">Kopi murni diseduh air panas tradisional.</p>
+                <div class="flex items-center justify-between mt-2">
+                    <span class="font-bold text-indigo-950 text-sm">Rp 6.000</span>
+                    <button onclick="addToCart('Kopi Tubruk Hitam', 6000)" class="bg-amber-400 hover:bg-amber-500 text-indigo-950 font-bold px-3 py-1.5 rounded-xl text-xs shadow-sm transition active:scale-95">+ Tambah</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-item flex items-center bg-white p-3 rounded-2xl border border-gray-100 shadow-sm gap-4" data-category="panas">
+            <div class="w-20 h-20 bg-amber-100 rounded-xl overflow-hidden flex-shrink-0">
+                <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=300&auto=format&fit=crop&q=80" alt="Teh Hangat" class="w-full h-full object-cover">
+            </div>
+            <div class="flex-1">
+                <h3 class="font-bold text-gray-800 text-sm">Teh Manis Hangat</h3>
+                <p class="text-gray-400 text-[11px] line-clamp-1 mt-0.5">Teh hangat pas untuk bersantai malam.</p>
+                <div class="flex items-center justify-between mt-2">
+                    <span class="font-bold text-indigo-950 text-sm">Rp 4.000</span>
+                    <button onclick="addToCart('Teh Manis Hangat', 4000)" class="bg-amber-400 hover:bg-amber-500 text-indigo-950 font-bold px-3 py-1.5 rounded-xl text-xs shadow-sm transition active:scale-95">+ Tambah</button>
+                </div>
+            </div>
+        </div>
+
     </main>
 
+    <!-- FLOATING CART BAR -->
     <div id="cartBar" class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-indigo-950 text-white p-4 rounded-t-3xl shadow-2xl transition-transform duration-300 translate-y-full flex items-center justify-between">
         <div>
             <p class="text-[10px] text-amber-400 font-semibold uppercase tracking-wider">Pesanan Anda</p>
@@ -101,6 +201,7 @@
         </button>
     </div>
 
+    <!-- JAVASCRIPT LOGIC -->
     <script>
         let cart = {};
 
