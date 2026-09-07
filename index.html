@@ -51,12 +51,12 @@
     </div>
 
     <nav class="flex gap-2 px-4 py-3 overflow-x-auto whitespace-nowrap scrollbar-none sticky top-0 bg-slate-50/90 backdrop-blur z-20">
-        <button onclick="filterMenu('all')" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-white transition shadow-sm">Semua Menu</button>
-        <button onclick="filterMenu('nasi')" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 transition">🍚 Nasi</button>
-        <button onclick="filterMenu('mie')" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 transition">🍜 Mie</button>
-        <button onclick="filterMenu('snack')" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 transition">🍟 Snack</button>
-        <button onclick="filterMenu('dingin')" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 transition">🥤 Dingin</button>
-        <button onclick="filterMenu('panas')" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 transition">☕ Panas</button>
+        <button onclick="filterMenu('all', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-white transition shadow-sm">Semua Menu</button>
+        <button onclick="filterMenu('nasi', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 transition">🍚 Nasi</button>
+        <button onclick="filterMenu('mie', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 transition">🍜 Mie</button>
+        <button onclick="filterMenu('snack', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 transition">🍟 Snack</button>
+        <button onclick="filterMenu('dingin', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 transition">🥤 Dingin</button>
+        <button onclick="filterMenu('panas', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 transition">☕ Panas</button>
     </nav>
 
     <main class="px-4 space-y-3 mb-28 overflow-y-auto flex-1">
@@ -127,35 +127,4 @@
             <div class="flex-1 flex flex-col justify-between">
                 <div>
                     <h3 class="font-bold text-slate-900 text-sm">Mie Rebus Kuah Kari Spesial</h3>
-                    <p class="text-slate-400 text-[11px] line-clamp-1 mt-0.5">Kuah kental gurih dengan tambahan cabai rawit iris.</p>
-                </div>
-                <div class="flex items-center justify-between mt-2">
-                    <span class="font-extrabold text-slate-900 text-sm">Rp 12.000</span>
-                    <button onclick="addToCart('Mie Rebus Kuah Kari Spesial', 12000)" class="bg-amber-400 hover:bg-amber-500 text-slate-950 font-extrabold px-3.5 py-2 rounded-xl text-xs shadow-sm transition active:scale-95">
-                        + Tambah
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="menu-item bg-white p-3 rounded-2xl border border-slate-100 shadow-sm flex gap-3.5 relative overflow-hidden" data-category="snack">
-            <div class="w-24 h-24 bg-slate-100 rounded-xl overflow-hidden flex-shrink-0">
-                <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=300&auto=format&fit=crop&q=80" alt="Kentang Goreng" class="w-full h-full object-cover">
-            </div>
-            <div class="flex-1 flex flex-col justify-between">
-                <div>
-                    <h3 class="font-bold text-slate-900 text-sm">Kentang Goreng Renyah</h3>
-                    <p class="text-slate-400 text-[11px] line-clamp-1 mt-0.5">Teman nongkrong paling pas, disajikan hangat.</p>
-                </div>
-                <div class="flex items-center justify-between mt-2">
-                    <span class="font-extrabold text-slate-900 text-sm">Rp 12.000</span>
-                    <button onclick="addToCart('Kentang Goreng Renyah', 12000)" class="bg-amber-400 hover:bg-amber-500 text-slate-950 font-extrabold px-3.5 py-2 rounded-xl text-xs shadow-sm transition active:scale-95">
-                        + Tambah
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="menu-item bg-white p-3 rounded-2xl border border-slate-100 shadow-sm flex gap-3.5 relative overflow-hidden" data-category="snack">
-            <span class="absolute top-0 right-0 bg-amber-500 text-slate-950 text-[9px] font-extrabold px-2.5 py-0.5 rounded-bl-xl uppercase tracking-wider">🧀 Recommended</span>
-            <div class="w-24 h-24 bg-slate-100 rounded-xl overflow-hidden flex-
+                    <p class="text-slate-400 text
