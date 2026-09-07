@@ -19,7 +19,6 @@
 <body class="max-w-md mx-auto bg-slate-50 min-h-screen relative pb-36">
 
     <header class="bg-slate-900 text-white p-6 rounded-b-[2.5rem] shadow-xl text-center relative z-10">
-        
         <div class="inline-flex items-center gap-1.5 bg-amber-400/10 border border-amber-400/30 text-amber-400 text-xs font-semibold px-3 py-1 rounded-full mb-3">
             <span>🔥</span> Warkop Legendaris & Nyaman
         </div>
@@ -220,4 +219,265 @@
             <div class="flex items-center justify-between pt-2 border-t border-slate-100">
                 <div class="flex items-center gap-1.5">
                     <span class="text-[11px] font-semibold text-amber-500">🌶️ Pedas:</span>
-                    <select class="spice-select bg-slate-10
+                    <select class="spice-select bg-slate-100 text-slate-700 text-[11px] font-semibold rounded-lg px-2 py-1 border border-slate-200 focus:outline-none">
+                        <option value="Tidak Pedas" selected>Tidak Pedas</option>
+                        <option value="Sedang">Sedang</option>
+                        <option value="Pedas">Pedas</option>
+                    </select>
+                </div>
+                <button type="button" class="btn-add bg-amber-400 hover:bg-amber-500 text-slate-950 font-extrabold px-4 py-1.5 rounded-xl text-xs shadow-sm transition active:scale-95 cursor-pointer">
+                    + Tambah
+                </button>
+            </div>
+        </div>
+
+        <div class="menu-item bg-white p-3 rounded-2xl border border-slate-100 shadow-sm flex flex-col gap-3 relative" data-category="snack" data-name="Roti Bakar Coklat Keju Luber" data-price="15000">
+            <span class="absolute top-2 right-2 bg-amber-500 text-slate-950 text-[9px] font-extrabold px-2.5 py-0.5 rounded-lg uppercase tracking-wider">🧀 Recommended</span>
+            <div class="flex gap-3.5 items-center">
+                <div class="w-24 h-24 bg-slate-100 rounded-xl overflow-hidden flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=300&auto=format&fit=crop&q=80" alt="Roti Bakar" class="w-full h-full object-cover">
+                </div>
+                <div class="flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-sm">Roti Bakar Coklat Keju Luber</h3>
+                        <p class="text-slate-400 text-[11px] line-clamp-1 mt-0.5">Roti tebal dengan olesan coklat lumer & keju melimpah.</p>
+                    </div>
+                    <div class="mt-2">
+                        <span class="font-extrabold text-slate-900 text-sm">Rp 15.000</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-slate-100">
+                <div class="flex items-center gap-1.5">
+                    <span class="text-[11px] font-semibold text-amber-500">🌶️ Pedas:</span>
+                    <select class="spice-select bg-slate-100 text-slate-700 text-[11px] font-semibold rounded-lg px-2 py-1 border border-slate-200 focus:outline-none">
+                        <option value="Tidak Pedas" selected>Tidak Pedas (Manis)</option>
+                    </select>
+                </div>
+                <button type="button" class="btn-add bg-amber-400 hover:bg-amber-500 text-slate-950 font-extrabold px-4 py-1.5 rounded-xl text-xs shadow-sm transition active:scale-95 cursor-pointer">
+                    + Tambah
+                </button>
+            </div>
+        </div>
+
+        <div class="menu-item bg-white p-3 rounded-2xl border border-slate-100 shadow-sm flex items-center justify-between gap-3.5 relative" data-category="dingin" data-name="Es Teh Manis Segar" data-price="5000">
+            <div class="flex gap-3.5 items-center">
+                <div class="w-24 h-24 bg-slate-100 rounded-xl overflow-hidden flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=300&auto=format&fit=crop&q=80" alt="Es Teh Manis" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h3 class="font-bold text-slate-900 text-sm">Es Teh Manis Segar</h3>
+                    <p class="text-slate-400 text-[11px] line-clamp-1 mt-0.5">Teh melati pilihan, manisnya pas pelepas dahaga.</p>
+                    <span class="font-extrabold text-slate-900 text-sm mt-2 block">Rp 5.000</span>
+                </div>
+            </div>
+            <button type="button" class="btn-add bg-amber-400 hover:bg-amber-500 text-slate-950 font-extrabold px-4 py-1.5 rounded-xl text-xs shadow-sm transition active:scale-95 cursor-pointer flex-shrink-0">
+                + Tambah
+            </button>
+        </div>
+
+        <div class="menu-item bg-white p-3 rounded-2xl border border-slate-100 shadow-sm flex items-center justify-between gap-3.5 relative" data-category="dingin" data-name="Es Jeruk Peras Asli" data-price="7000">
+            <div class="flex gap-3.5 items-center">
+                <div class="w-24 h-24 bg-slate-100 rounded-xl overflow-hidden flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=300&auto=format&fit=crop&q=80" alt="Es Jeruk" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h3 class="font-bold text-slate-900 text-sm">Es Jeruk Peras Asli</h3>
+                    <p class="text-slate-400 text-[11px] line-clamp-1 mt-0.5">Jeruk segar pilihan diperas langsung.</p>
+                    <span class="font-extrabold text-slate-900 text-sm mt-2 block">Rp 7.000</span>
+                </div>
+            </div>
+            <button type="button" class="btn-add bg-amber-400 hover:bg-amber-500 text-slate-950 font-extrabold px-4 py-1.5 rounded-xl text-xs shadow-sm transition active:scale-95 cursor-pointer flex-shrink-0">
+                + Tambah
+            </button>
+        </div>
+
+        <div class="menu-item bg-white p-3 rounded-2xl border border-slate-100 shadow-sm flex items-center justify-between gap-3.5 relative" data-category="panas" data-name="Kopi Tubruk Hitam Mantap" data-price="6000">
+            <span class="absolute top-2 right-2 bg-slate-900 text-amber-400 text-[9px] font-extrabold px-2.5 py-0.5 rounded-lg uppercase tracking-wider">☕ Khas Warkop</span>
+            <div class="flex gap-3.5 items-center">
+                <div class="w-24 h-24 bg-slate-100 rounded-xl overflow-hidden flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=300&auto=format&fit=crop&q=80" alt="Kopi Hitam" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h3 class="font-bold text-slate-900 text-sm">Kopi Tubruk Hitam Mantap</h3>
+                    <p class="text-slate-400 text-[11px] line-clamp-1 mt-0.5">Biji kopi pilihan diseduh air panas tradisional.</p>
+                    <span class="font-extrabold text-slate-900 text-sm mt-2 block">Rp 6.000</span>
+                </div>
+            </div>
+            <button type="button" class="btn-add bg-amber-400 hover:bg-amber-500 text-slate-950 font-extrabold px-4 py-1.5 rounded-xl text-xs shadow-sm transition active:scale-95 cursor-pointer flex-shrink-0">
+                + Tambah
+            </button>
+        </div>
+
+        <div class="menu-item bg-white p-3 rounded-2xl border border-slate-100 shadow-sm flex items-center justify-between gap-3.5 relative" data-category="panas" data-name="Teh Manis Hangat" data-price="4000">
+            <div class="flex gap-3.5 items-center">
+                <div class="w-24 h-24 bg-slate-100 rounded-xl overflow-hidden flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=300&auto=format&fit=crop&q=80" alt="Teh Hangat" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h3 class="font-bold text-slate-900 text-sm">Teh Manis Hangat</h3>
+                    <p class="text-slate-400 text-[11px] line-clamp-1 mt-0.5">Teh hangat nikmat menemani santai malam.</p>
+                    <span class="font-extrabold text-slate-900 text-sm mt-2 block">Rp 4.000</span>
+                </div>
+            </div>
+            <button type="button" class="btn-add bg-amber-400 hover:bg-amber-500 text-slate-950 font-extrabold px-4 py-1.5 rounded-xl text-xs shadow-sm transition active:scale-95 cursor-pointer flex-shrink-0">
+                + Tambah
+            </button>
+        </div>
+
+    </main>
+
+    <div id="cartBar" class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-slate-900 text-white p-4 rounded-t-[2.5rem] shadow-2xl transition-transform duration-300 translate-y-full flex items-center justify-between border-t border-slate-800 z-50">
+        <div class="pl-2">
+            <p class="text-[10px] text-amber-400 font-bold uppercase tracking-wider">Keranjang Pesanan</p>
+            <p class="text-xs font-medium text-slate-200 mt-0.5"><span id="totalItems" class="font-bold text-white">0</span> Menu | <span id="totalPrice" class="font-extrabold text-amber-400">Rp 0</span></p>
+        </div>
+        <button type="button" id="btnCheckout" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-extrabold px-5 py-3 rounded-xl text-xs flex items-center gap-2 shadow-lg transition active:scale-95 cursor-pointer">
+            <span>Pesan Sekarang</span> 🚀
+        </button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let cart = {};
+            let currentCategory = 'all';
+
+            const catButtons = document.querySelectorAll('.cat-btn');
+            const searchInput = document.getElementById('searchMenu');
+            const menuItems = document.querySelectorAll('.menu-item');
+            const btnPaket = document.getElementById('btnPaket');
+            const btnCheckout = document.getElementById('btnCheckout');
+
+            // 1. Filter Kategori
+            catButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    currentCategory = this.getAttribute('data-cat');
+
+                    catButtons.forEach(b => {
+                        b.className = "cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 transition cursor-pointer inline-block";
+                    });
+                    this.className = "cat-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-white transition shadow-sm cursor-pointer inline-block";
+
+                    filterAndSearch();
+                });
+            });
+
+            // 2. Search Menu
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    filterAndSearch();
+                });
+            }
+
+            function filterAndSearch() {
+                const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+                
+                menuItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    const name = item.getAttribute('data-name').toLowerCase();
+
+                    const matchCategory = (currentCategory === 'all' || category === currentCategory);
+                    const matchQuery = name.includes(query);
+
+                    if (matchCategory && matchQuery) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+            }
+
+            // 3. Tombol Tambah ke Keranjang
+            menuItems.forEach(item => {
+                const btnAdd = item.querySelector('.btn-add');
+                const spiceSelect = item.querySelector('.spice-select');
+                const name = item.getAttribute('data-name');
+                const price = parseInt(item.getAttribute('data-price')) || 0;
+
+                if (btnAdd) {
+                    btnAdd.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        let spiceLevel = '';
+                        if (spiceSelect) {
+                            spiceLevel = ` (${spiceSelect.value})`;
+                        }
+                        let cartKey = name + spiceLevel;
+
+                        if (cart[cartKey]) {
+                            cart[cartKey].qty += 1;
+                        } else {
+                            cart[cartKey] = { name: name, price: price, qty: 1 };
+                        }
+                        updateCartUI();
+                    });
+                }
+            });
+
+            // 4. Tombol Ambil Paket
+            if (btnPaket) {
+                btnPaket.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    let cartKey = "Paket Hemat (Nasgor + Es Teh)";
+                    if (cart[cartKey]) {
+                        cart[cartKey].qty += 1;
+                    } else {
+                        cart[cartKey] = { name: cartKey, price: 21000, qty: 1 };
+                    }
+                    updateCartUI();
+                });
+            }
+
+            // 5. Update UI Keranjang
+            function updateCartUI() {
+                let totalCount = 0;
+                let totalPrice = 0;
+
+                for (let key in cart) {
+                    totalCount += cart[key].qty;
+                    totalPrice += cart[key].price * cart[key].qty;
+                }
+
+                document.getElementById('totalItems').innerText = totalCount;
+                document.getElementById('totalPrice').innerText = 'Rp ' + totalPrice.toLocaleString('id-ID');
+
+                const cartBar = document.getElementById('cartBar');
+                if (totalCount > 0) {
+                    cartBar.classList.remove('translate-y-full');
+                } else {
+                    cartBar.classList.add('translate-y-full');
+                }
+            }
+
+            // 6. Checkout WhatsApp
+            if (btnCheckout) {
+                btnCheckout.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const customerName = document.getElementById('customerName').value.trim();
+                    const tableNo = document.getElementById('tableNumber').value.trim();
+
+                    if (!customerName) {
+                        alert('Mohon isi nama pelanggan terlebih dahulu ya kak!');
+                        document.getElementById('customerName').focus();
+                        return;
+                    }
+
+                    let message = `Halo Warkop Mikita, saya ingin memesan:\n\n*👤 Nama: ${customerName}*\n*📍 Nomor Meja: ${tableNo}*\n\n*Daftar Pesanan:* \n`;
+                    
+                    let totalPrice = 0;
+                    for (let key in cart) {
+                        let subtotal = cart[key].price * cart[key].qty;
+                        totalPrice += subtotal;
+                        message += `▪️ ${key} (${cart[key].qty}x) = Rp ${subtotal.toLocaleString('id-ID')}\n`;
+                    }
+                    
+                    message += `\n*💰 Total Pembayaran: Rp ${totalPrice.toLocaleString('id-ID')}*\n\nMohon segera diproses ya kak, terima kasih!`;
+
+                    const phoneAdmin = "6281234567890";
+                    const encodedMessage = encodeURIComponent(message);
+                    window.open(`https://wa.me/${phoneAdmin}?text=${encodedMessage}`, '_blank');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
