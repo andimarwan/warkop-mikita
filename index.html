@@ -4,22 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu - Warkop Mikita</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #F8FAFC; }
         .scrollbar-none::-webkit-scrollbar { display: none; }
         .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
-        button, select, input {
+        /* Memastikan seluruh elemen interaktif dapat diklik dengan sempurna */
+        button, select, input, label {
             pointer-events: auto !important;
+            position: relative;
+            z-index: 20;
         }
     </style>
 </head>
 <body class="max-w-md mx-auto bg-slate-50 min-h-screen relative pb-36">
 
-    <!-- HEADER / HERO SECTION -->
-    <header class="bg-slate-900 text-white p-6 rounded-b-[2.5rem] shadow-xl text-center relative border-b border-slate-800">
+    <header class="bg-slate-900 text-white p-6 rounded-b-[2.5rem] shadow-xl text-center relative border-b border-slate-800 z-10">
         
         <div class="inline-flex items-center gap-1.5 bg-amber-400/10 border border-amber-400/30 text-amber-400 text-xs font-semibold px-3 py-1 rounded-full mb-3">
             <span>🔥</span> Warkop Legendaris & Nyaman
@@ -27,7 +28,6 @@
         <h1 class="text-3xl font-extrabold tracking-tight">Warkop Mikita</h1>
         <p class="text-xs text-slate-400 mt-1 max-w-[260px] mx-auto">Tempat nongkrong asik, ngopi nikmat, perut kenyang. Pilih menu favoritmu di bawah!</p>
         
-        <!-- INPUT NAMA PELANGGAN -->
         <div class="mt-5 bg-slate-800 p-2.5 rounded-2xl flex items-center justify-between border border-slate-700 shadow-inner">
             <div class="flex items-center gap-2 pl-2">
                 <span class="text-base text-amber-400">👤</span>
@@ -38,7 +38,6 @@
             </div>
         </div>
 
-        <!-- INPUT NOMOR MEJA -->
         <div class="mt-2.5 bg-slate-800 p-2.5 rounded-2xl flex items-center justify-between border border-slate-700 shadow-inner">
             <div class="flex items-center gap-2 pl-2">
                 <span class="text-base text-amber-400">📍</span>
@@ -51,9 +50,8 @@
         </div>
     </header>
 
-    <!-- BANNER PROMO / UP-SELLING -->
     <div class="px-4 mt-4">
-        <div class="bg-gradient-to-r from-amber-500 to-amber-600 rounded-2xl p-4 text-slate-950 shadow-lg flex items-center justify-between relative">
+        <div class="bg-gradient-to-r from-amber-500 to-amber-600 rounded-2xl p-4 text-slate-950 shadow-lg flex items-center justify-between relative z-10">
             <div>
                 <span class="bg-slate-950 text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wider">Paket Hemat Nongkrong</span>
                 <h4 class="font-extrabold text-sm mt-1">Nasi Goreng + Es Teh Manis</h4>
@@ -65,7 +63,6 @@
         </div>
     </div>
 
-    <!-- KATEGORI NAVIGASI & SEARCH MENU -->
     <nav class="sticky top-0 bg-slate-50/98 backdrop-blur px-4 pt-3 pb-2 z-40 shadow-sm">
         <div class="flex gap-2 overflow-x-auto whitespace-nowrap scrollbar-none py-1">
             <button type="button" onclick="filterMenu('all')" id="cat-all" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-white transition shadow-sm cursor-pointer inline-block">Semua Menu</button>
@@ -76,17 +73,14 @@
             <button type="button" onclick="filterMenu('panas')" id="cat-panas" class="cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 transition cursor-pointer inline-block">☕ Panas</button>
         </div>
 
-        <!-- SEARCH BAR MENU -->
         <div class="mt-2.5 relative">
-            <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-amber-500 font-bold">🔍</span>
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-amber-500 font-bold z-10">🔍</span>
             <input type="text" id="searchMenu" oninput="searchProduct()" placeholder="Cari menu kesukaanmu (cth: Nasi Goreng, Kopi)..." class="w-full bg-white text-slate-800 text-xs font-medium pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-slate-900 shadow-sm">
         </div>
     </nav>
 
-    <!-- DAFTAR MENU (PRODUK) -->
     <main class="px-4 space-y-3 mt-3 relative z-10">
         
-        <!-- KATEGORI: NASI -->
         <div class="menu-item bg-white p-3 rounded-2xl border border-slate-100 shadow-sm flex flex-col gap-3 relative" data-category="nasi" data-name="Nasi Goreng Spesial Mikita">
             <span class="absolute top-2 right-2 bg-amber-500 text-slate-950 text-[9px] font-extrabold px-2.5 py-0.5 rounded-lg uppercase tracking-wider">⭐ Paling Laris</span>
             <div class="flex gap-3.5 items-center">
@@ -104,7 +98,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Opsi Kepedasan & Tombol Tambah -->
             <div class="flex items-center justify-between pt-2 border-t border-slate-100">
                 <div class="flex items-center gap-1.5">
                     <span class="text-[11px] font-semibold text-amber-500">🌶️ Pedas:</span>
@@ -150,7 +143,6 @@
             </div>
         </div>
 
-        <!-- KATEGORI: MIE -->
         <div class="menu-item bg-white p-3 rounded-2xl border border-slate-100 shadow-sm flex flex-col gap-3 relative" data-category="mie" data-name="Mie Goreng Ala Warkop">
             <span class="absolute top-2 right-2 bg-red-500 text-white text-[9px] font-extrabold px-2.5 py-0.5 rounded-lg uppercase tracking-wider">🌶️ Favorit Malam</span>
             <div class="flex gap-3.5 items-center">
@@ -212,7 +204,6 @@
             </div>
         </div>
 
-        <!-- KATEGORI: SNACK -->
         <div class="menu-item bg-white p-3 rounded-2xl border border-slate-100 shadow-sm flex flex-col gap-3 relative" data-category="snack" data-name="Kentang Goreng Renyah">
             <div class="flex gap-3.5 items-center">
                 <div class="w-24 h-24 bg-slate-100 rounded-xl overflow-hidden flex-shrink-0">
@@ -231,254 +222,4 @@
             <div class="flex items-center justify-between pt-2 border-t border-slate-100">
                 <div class="flex items-center gap-1.5">
                     <span class="text-[11px] font-semibold text-amber-500">🌶️ Pedas:</span>
-                    <select id="spice-kentang" class="bg-slate-100 text-slate-700 text-[11px] font-semibold rounded-lg px-2 py-1 border border-slate-200 focus:outline-none cursor-pointer">
-                        <option value="Tidak Pedas" selected>Tidak Pedas</option>
-                        <option value="Sedang">Sedang</option>
-                        <option value="Pedas">Pedas</option>
-                    </select>
-                </div>
-                <button type="button" onclick="addToCart('Kentang Goreng Renyah', 12000, 'spice-kentang')" class="bg-amber-400 hover:bg-amber-500 text-slate-950 font-extrabold px-4 py-1.5 rounded-xl text-xs shadow-sm transition active:scale-95 cursor-pointer">
-                    + Tambah
-                </button>
-            </div>
-        </div>
-
-        <div class="menu-item bg-white p-3 rounded-2xl border border-slate-100 shadow-sm flex flex-col gap-3 relative" data-category="snack" data-name="Roti Bakar Coklat Keju Luber">
-            <span class="absolute top-2 right-2 bg-amber-500 text-slate-950 text-[9px] font-extrabold px-2.5 py-0.5 rounded-lg uppercase tracking-wider">🧀 Recommended</span>
-            <div class="flex gap-3.5 items-center">
-                <div class="w-24 h-24 bg-slate-100 rounded-xl overflow-hidden flex-shrink-0">
-                    <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=300&auto=format&fit=crop&q=80" alt="Roti Bakar" class="w-full h-full object-cover">
-                </div>
-                <div class="flex-1 flex flex-col justify-between">
-                    <div>
-                        <h3 class="font-bold text-slate-900 text-sm">Roti Bakar Coklat Keju Luber</h3>
-                        <p class="text-slate-400 text-[11px] line-clamp-1 mt-0.5">Roti tebal dengan olesan coklat lumer & keju melimpah.</p>
-                    </div>
-                    <div class="mt-2">
-                        <span class="font-extrabold text-slate-900 text-sm">Rp 15.000</span>
-                    </div>
-                </div>
-            </div>
-            <div class="flex items-center justify-between pt-2 border-t border-slate-100">
-                <div class="flex items-center gap-1.5">
-                    <span class="text-[11px] font-semibold text-amber-500">🌶️ Pedas:</span>
-                    <select id="spice-rotibakar" class="bg-slate-100 text-slate-700 text-[11px] font-semibold rounded-lg px-2 py-1 border border-slate-200 focus:outline-none cursor-pointer">
-                        <option value="Tidak Pedas" selected>Tidak Pedas (Manis)</option>
-                    </select>
-                </div>
-                <button type="button" onclick="addToCart('Roti Bakar Coklat Keju Luber', 15000, 'spice-rotibakar')" class="bg-amber-400 hover:bg-amber-500 text-slate-950 font-extrabold px-4 py-1.5 rounded-xl text-xs shadow-sm transition active:scale-95 cursor-pointer">
-                    + Tambah
-                </button>
-            </div>
-        </div>
-
-        <!-- KATEGORI: MINUMAN DINGIN -->
-        <div class="menu-item bg-white p-3 rounded-2xl border border-slate-100 shadow-sm flex items-center justify-between gap-3.5 relative" data-category="dingin" data-name="Es Teh Manis Segar">
-            <div class="flex gap-3.5 items-center">
-                <div class="w-24 h-24 bg-slate-100 rounded-xl overflow-hidden flex-shrink-0">
-                    <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=300&auto=format&fit=crop&q=80" alt="Es Teh Manis" class="w-full h-full object-cover">
-                </div>
-                <div>
-                    <h3 class="font-bold text-slate-900 text-sm">Es Teh Manis Segar</h3>
-                    <p class="text-slate-400 text-[11px] line-clamp-1 mt-0.5">Teh melati pilihan, manisnya pas pelepas dahaga.</p>
-                    <span class="font-extrabold text-slate-900 text-sm mt-2 block">Rp 5.000</span>
-                </div>
-            </div>
-            <button type="button" onclick="addToCart('Es Teh Manis Segar', 5000, null)" class="bg-amber-400 hover:bg-amber-500 text-slate-950 font-extrabold px-4 py-1.5 rounded-xl text-xs shadow-sm transition active:scale-95 cursor-pointer flex-shrink-0">
-                + Tambah
-            </button>
-        </div>
-
-        <div class="menu-item bg-white p-3 rounded-2xl border border-slate-100 shadow-sm flex items-center justify-between gap-3.5 relative" data-category="dingin" data-name="Es Jeruk Peras Asli">
-            <div class="flex gap-3.5 items-center">
-                <div class="w-24 h-24 bg-slate-100 rounded-xl overflow-hidden flex-shrink-0">
-                    <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=300&auto=format&fit=crop&q=80" alt="Es Jeruk" class="w-full h-full object-cover">
-                </div>
-                <div>
-                    <h3 class="font-bold text-slate-900 text-sm">Es Jeruk Peras Asli</h3>
-                    <p class="text-slate-400 text-[11px] line-clamp-1 mt-0.5">Jeruk segar pilihan diperas langsung.</p>
-                    <span class="font-extrabold text-slate-900 text-sm mt-2 block">Rp 7.000</span>
-                </div>
-            </div>
-            <button type="button" onclick="addToCart('Es Jeruk Peras Asli', 7000, null)" class="bg-amber-400 hover:bg-amber-500 text-slate-950 font-extrabold px-4 py-1.5 rounded-xl text-xs shadow-sm transition active:scale-95 cursor-pointer flex-shrink-0">
-                + Tambah
-            </button>
-        </div>
-
-        <!-- KATEGORI: MINUMAN PANAS -->
-        <div class="menu-item bg-white p-3 rounded-2xl border border-slate-100 shadow-sm flex items-center justify-between gap-3.5 relative" data-category="panas" data-name="Kopi Tubruk Hitam Mantap">
-            <span class="absolute top-2 right-2 bg-slate-900 text-amber-400 text-[9px] font-extrabold px-2.5 py-0.5 rounded-lg uppercase tracking-wider">☕ Khas Warkop</span>
-            <div class="flex gap-3.5 items-center">
-                <div class="w-24 h-24 bg-slate-100 rounded-xl overflow-hidden flex-shrink-0">
-                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=300&auto=format&fit=crop&q=80" alt="Kopi Hitam" class="w-full h-full object-cover">
-                </div>
-                <div>
-                    <h3 class="font-bold text-slate-900 text-sm">Kopi Tubruk Hitam Mantap</h3>
-                    <p class="text-slate-400 text-[11px] line-clamp-1 mt-0.5">Biji kopi pilihan diseduh air panas tradisional.</p>
-                    <span class="font-extrabold text-slate-900 text-sm mt-2 block">Rp 6.000</span>
-                </div>
-            </div>
-            <button type="button" onclick="addToCart('Kopi Tubruk Hitam Mantap', 6000, null)" class="bg-amber-400 hover:bg-amber-500 text-slate-950 font-extrabold px-4 py-1.5 rounded-xl text-xs shadow-sm transition active:scale-95 cursor-pointer flex-shrink-0">
-                + Tambah
-            </button>
-        </div>
-
-        <div class="menu-item bg-white p-3 rounded-2xl border border-slate-100 shadow-sm flex items-center justify-between gap-3.5 relative" data-category="panas" data-name="Teh Manis Hangat">
-            <div class="flex gap-3.5 items-center">
-                <div class="w-24 h-24 bg-slate-100 rounded-xl overflow-hidden flex-shrink-0">
-                    <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=300&auto=format&fit=crop&q=80" alt="Teh Hangat" class="w-full h-full object-cover">
-                </div>
-                <div>
-                    <h3 class="font-bold text-slate-900 text-sm">Teh Manis Hangat</h3>
-                    <p class="text-slate-400 text-[11px] line-clamp-1 mt-0.5">Teh hangat nikmat menemani santai malam.</p>
-                    <span class="font-extrabold text-slate-900 text-sm mt-2 block">Rp 4.000</span>
-                </div>
-            </div>
-            <button type="button" onclick="addToCart('Teh Manis Hangat', 4000, null)" class="bg-amber-400 hover:bg-amber-500 text-slate-950 font-extrabold px-4 py-1.5 rounded-xl text-xs shadow-sm transition active:scale-95 cursor-pointer flex-shrink-0">
-                + Tambah
-            </button>
-        </div>
-
-    </main>
-
-    <!-- FLOATING CART BAR -->
-    <div id="cartBar" class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-slate-900 text-white p-4 rounded-t-[2.5rem] shadow-2xl transition-transform duration-300 translate-y-full flex items-center justify-between border-t border-slate-800 z-50">
-        <div class="pl-2">
-            <p class="text-[10px] text-amber-400 font-bold uppercase tracking-wider">Keranjang Pesanan</p>
-            <p class="text-xs font-medium text-slate-200 mt-0.5"><span id="totalItems" class="font-bold text-white">0</span> Menu | <span id="totalPrice" class="font-extrabold text-amber-400">Rp 0</span></p>
-        </div>
-        <button type="button" onclick="checkoutWhatsApp()" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-extrabold px-5 py-3 rounded-xl text-xs flex items-center gap-2 shadow-lg transition active:scale-95 cursor-pointer">
-            <span>Pesan Sekarang</span> 🚀
-        </button>
-    </div>
-
-    <!-- JAVASCRIPT LOGIC -->
-    <script>
-        let cart = {};
-        let currentCategory = 'all';
-
-        function filterMenu(category) {
-            currentCategory = category;
-            
-            // Reset semua tombol kategori ke gaya default (putih)
-            const buttons = document.querySelectorAll('.cat-btn');
-            buttons.forEach(btn => {
-                btn.className = "cat-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 transition cursor-pointer inline-block";
-            });
-            
-            // Aktifkan tombol yang dipilih (latar belakang gelap, teks putih)
-            const activeBtn = document.getElementById('cat-' + category);
-            if (activeBtn) {
-                activeBtn.className = "cat-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-white transition shadow-sm cursor-pointer inline-block";
-            }
-
-            // Kosongkan kolom pencarian agar penyaringan kategori berjalan murni
-            document.getElementById('searchMenu').value = '';
-
-            // Tampilkan atau sembunyikan item berdasarkan kategori
-            const items = document.querySelectorAll('.menu-item');
-            items.forEach(item => {
-                if (category === 'all' || item.getAttribute('data-category') === category) {
-                    item.style.display = 'flex';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
-
-        function searchProduct() {
-            const query = document.getElementById('searchMenu').value.toLowerCase();
-            const items = document.querySelectorAll('.menu-item');
-
-            items.forEach(item => {
-                const name = item.getAttribute('data-name').toLowerCase();
-                const category = item.getAttribute('data-category');
-                
-                const matchCategory = (currentCategory === 'all' || category === currentCategory);
-                const matchQuery = name.includes(query);
-
-                if (matchCategory && matchQuery) {
-                    item.style.display = 'flex';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
-
-        function addToCart(name, price, spiceId) {
-            let spiceLevel = '';
-            if (spiceId) {
-                const spiceSelect = document.getElementById(spiceId);
-                if (spiceSelect) {
-                    spiceLevel = ` (${spiceSelect.value})`;
-                }
-            }
-
-            let cartKey = name + spiceLevel;
-
-            if (cart[cartKey]) {
-                cart[cartKey].qty += 1;
-            } else {
-                cart[cartKey] = { name: name, price: price, qty: 1 };
-            }
-            updateCartUI();
-        }
-
-        function addPackageToCart() {
-            let cartKey = "Paket Hemat (Nasgor + Es Teh)";
-            if (cart[cartKey]) {
-                cart[cartKey].qty += 1;
-            } else {
-                cart[cartKey] = { name: cartKey, price: 21000, qty: 1 };
-            }
-            updateCartUI();
-        }
-
-        function updateCartUI() {
-            let totalCount = 0;
-            let totalPrice = 0;
-
-            for (let key in cart) {
-                totalCount += cart[key].qty;
-                totalPrice += cart[key].price * cart[key].qty;
-            }
-
-            document.getElementById('totalItems').innerText = totalCount;
-            document.getElementById('totalPrice').innerText = 'Rp ' + totalPrice.toLocaleString('id-ID');
-
-            const cartBar = document.getElementById('cartBar');
-            if (totalCount > 0) {
-                cartBar.classList.remove('translate-y-full');
-            } else {
-                cartBar.classList.add('translate-y-full');
-            }
-        }
-
-        function checkoutWhatsApp() {
-            const customerName = document.getElementById('customerName').value.trim();
-            const tableNo = document.getElementById('tableNumber').value.trim();
-
-            if (!customerName) {
-                alert('Mohon isi nama pelanggan terlebih dahulu ya kak!');
-                document.getElementById('customerName').focus();
-                return;
-            }
-
-            let message = `Halo Warkop Mikita, saya ingin memesan:\n\n*👤 Nama: ${customerName}*\n*📍 Nomor Meja: ${tableNo}*\n\n*Daftar Pesanan:* \n`;
-            
-            let totalPrice = 0;
-            for (let key in cart) {
-                let subtotal = cart[key].price * cart[key].qty;
-                totalPrice += subtotal;
-                message += `▪️ ${key} (${cart[key].qty}x) = Rp ${subtotal.toLocaleString('id-ID')}\n`;
-            }
-            
-            message += `\n*💰 Total Pembayaran: Rp ${totalPrice.toLocaleString('id-ID')}*\n\nMohon segera diproses ya kak, terima kasih!`;
-
-            const phoneAdmin = "6281234567890"; // Ganti dengan nomor WhatsApp kasir
-            const encodedMessage = encodeURIComponent(message);
-            window.open(`https://wa.me/${phoneAdmin}?text=${encodedMessage}`, '_blank');
-        }
-    </script>
-</body>
-</html>
+                    <select id="spice-kent
