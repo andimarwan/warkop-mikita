@@ -40,29 +40,19 @@
             </div>
         </div>
 
-        <!-- Nama Pelanggan -->
-        <div class="mt-2.5 bg-slate-800 p-2.5 rounded-2xl flex items-center justify-between border border-slate-700 shadow-inner">
-            <div class="flex items-center gap-2 pl-2">
-                <span class="text-base text-amber-400">👤</span>
-                <span class="text-xs font-medium text-slate-300">Nama Pelanggan:</span>
+        <!-- Nama Pelanggan & Nomor Meja -->
+        <div class="mt-2.5 grid grid-cols-3 gap-2">
+            <div class="col-span-2 bg-slate-800 p-2.5 rounded-2xl flex items-center justify-between border border-slate-700 shadow-inner">
+                <div class="flex items-center gap-1.5 pl-1">
+                    <span class="text-sm text-amber-400">👤</span>
+                    <span class="text-xs font-medium text-slate-300">Nama:</span>
+                </div>
+                <input type="text" id="customerName" placeholder="Tulis nama..." class="w-28 bg-slate-900 text-amber-400 font-bold px-2.5 py-1 text-xs rounded-xl border border-slate-700 focus:outline-none focus:border-amber-400 shadow-sm text-right">
             </div>
-            <div class="flex items-center pr-1 w-40">
-                <input type="text" id="customerName" placeholder="Tulis nama..." class="w-full bg-slate-900 text-amber-400 font-bold px-3 py-1.5 text-xs rounded-xl border border-slate-700 focus:outline-none focus:border-amber-400 shadow-sm text-right">
-            </div>
-        </div>
 
-        <!-- Nomor Meja & Anti-Fiktif PIN -->
-        <div class="mt-2.5 bg-slate-800 p-2.5 rounded-2xl flex items-center justify-between border border-slate-700 shadow-inner gap-2">
-            <div class="flex items-center gap-1.5 pl-2">
-                <span class="text-base text-amber-400">📍</span>
-                <span class="text-xs font-medium text-slate-300">Meja:</span>
+            <div class="bg-slate-800 p-2.5 rounded-2xl flex items-center justify-between border border-slate-700 shadow-inner">
+                <span class="text-sm text-amber-400">📍</span>
                 <input type="text" id="tableNumber" value="03" class="w-10 bg-slate-900 text-amber-400 font-extrabold text-center rounded-xl py-1 text-xs border border-slate-700 focus:outline-none focus:border-amber-400 shadow-sm">
-            </div>
-            
-            <!-- Fitur Preventif: PIN Meja -->
-            <div class="flex items-center gap-1 pr-1 border-l border-slate-700 pl-2">
-                <span class="text-[10px] text-slate-400 font-semibold" title="PIN yang tertera di papan meja">🔑 PIN Meja:</span>
-                <input type="password" id="tablePin" maxlength="4" placeholder="1234" class="w-12 bg-slate-900 text-amber-400 font-extrabold text-center rounded-xl py-1 text-xs border border-slate-700 focus:outline-none focus:border-amber-400 shadow-sm">
             </div>
         </div>
     </header>
@@ -238,28 +228,22 @@
             let cart = {};
             let currentCategory = 'all';
 
-            // --- PENGATURAN ADMIN CABANG & LOKASI GEOFENCING ---
+            // --- CONFIGURASI LOKASI GPS & WA ADMIN ---
             const CONFIG = {
-                // Nomor WA Admin Cabang
                 adminPhone: {
-                    "Slipi": "6281804032777",      // Ganti nomor WA Slipi
-                    "Andong": "6289876543210"     // Ganti nomor WA Jl. Andong
+                    "Slipi": "6281804032777",      // Nomor WA Admin Cabang Slipi
+                    "Andong": "6289876543210"     // Nomor WA Admin Cabang Jl. Andong
                 },
-                // Koordinat GPS Cabang (Untuk Fitur Geofencing Preventif)
+                // Koordinat Titik Pusat Cabang
                 coords: {
                     "Slipi": { lat: -6.1982, lng: 106.7990 }, 
                     "Andong": { lat: -6.1915, lng: 106.8012 } 
                 },
-                // PIN Keamanan Fisik Meja (Diubah berkala oleh kasir)
-                validPins: {
-                    "Slipi": "1234",
-                    "Andong": "5678"
-                },
-                useGPSCheck: false, // Ubah ke true jika ingin mengaktifkan kunci lokasi GPS (pelanggan harus di lokasi warkop)
-                usePinCheck: true   // Ubah ke true untuk mewajibkan masukan PIN Meja
+                useGPSCheck: true, // STATUS GEOFENCING AKTIF
+                maxRadiusMeters: 100 // RADIUS BATAS MAKSIMAL 100 METER
             };
 
-            // 1. OTOMATISASI DARI URL QR CODE (Contoh URL: ?cabang=Slipi&meja=05)
+            // URL Params Reader (Otomatisasi QR Code Meja)
             const urlParams = new URLSearchParams(window.location.search);
             const paramCabang = urlParams.get('cabang');
             const paramMeja = urlParams.get('meja');
@@ -274,7 +258,7 @@
                 document.getElementById('tableNumber').value = paramMeja;
             }
 
-            // Element Selector
+            // Element Selectors
             const catButtons = document.querySelectorAll('.cat-btn');
             const searchInput = document.getElementById('searchMenu');
             const menuItems = document.querySelectorAll('.menu-item');
@@ -289,7 +273,7 @@
             const btnSendWA = document.getElementById('btnSendWA');
             const modalCartList = document.getElementById('modalCartList');
 
-            // 2. Kategori & Search Filter
+            // Kategori & Search Filter
             function filterAndSearch() {
                 const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
                 menuItems.forEach(item => {
@@ -321,7 +305,7 @@
                 searchInput.addEventListener('input', filterAndSearch);
             }
 
-            // 3. Menambah Pesanan Ke Keranjang
+            // Tambah Ke Keranjang
             document.getElementById('menuContainer').addEventListener('click', function(e) {
                 const btnAdd = e.target.closest('.btn-add');
                 if (!btnAdd) return;
@@ -356,7 +340,7 @@
                 });
             }
 
-            // 4. Update UI Keranjang dan Modal
+            // Update UI Keranjang
             function updateCartUI() {
                 let totalCount = 0;
                 let totalPrice = 0;
@@ -434,7 +418,7 @@
                 }
             });
 
-            // 5. Handlers Modal
+            // Modal Controls
             function openModal() {
                 const customerName = document.getElementById('customerName').value.trim();
                 const tableNo = document.getElementById('tableNumber').value.trim();
@@ -461,7 +445,7 @@
             btnCloseModal.addEventListener('click', closeModal);
             btnEditCart.addEventListener('click', closeModal);
 
-            // 6. FUNGSI PEMERIKSAAN KELAYAKAN LOKASI GPS (GEOFENCING)
+            // RUMUS PERHITUNGAN JARAK LOKASI GPS (HAVERSINE FORMULA)
             function getDistanceInMeters(lat1, lon1, lat2, lon2) {
                 const R = 6371e3; // Radius bumi (meter)
                 const φ1 = lat1 * Math.PI/180;
@@ -477,12 +461,11 @@
                 return R * c; 
             }
 
-            // 7. PROSES PENGIRIMAN WA & PREVENTIF PESANAN FIKTIF
+            // PROSES WA & VALIDASI LOKASI GPS GEOFENCING
             btnSendWA.addEventListener('click', function() {
                 const customerName = document.getElementById('customerName').value.trim();
                 const tableNo = document.getElementById('tableNumber').value.trim();
                 const branch = document.getElementById('branchLocation').value;
-                const userPin = document.getElementById('tablePin').value.trim();
 
                 if (!customerName) {
                     alert('Mohon isi nama Anda terlebih dahulu!');
@@ -490,17 +473,7 @@
                     return;
                 }
 
-                // VALIDASI 1: Cek PIN Meja
-                if (CONFIG.usePinCheck) {
-                    const expectedPin = CONFIG.validPins[branch];
-                    if (userPin !== expectedPin) {
-                        alert('🔑 PIN Meja Salah!\n\nSilakan lihat PIN unik yang tertera di papan nomor meja Anda untuk memverifikasi pesanan.');
-                        document.getElementById('tablePin').focus();
-                        return;
-                    }
-                }
-
-                // VALIDASI 2: Cek Lokasi GPS (Jika diaktifkan pada CONFIG)
+                // Cek Lokasi GPS Pelanggan
                 if (CONFIG.useGPSCheck && navigator.geolocation) {
                     btnSendWA.innerText = "Memeriksa Lokasi...";
                     navigator.geolocation.getCurrentPosition(
@@ -512,16 +485,18 @@
                             const distance = getDistanceInMeters(userLat, userLng, target.lat, target.lng);
                             btnSendWA.innerText = "Konfirmasi & Kirim WA 🚀";
 
-                            if (distance > 100) { // Toleransi radius 100 meter
-                                alert(`📍 Anda terdeteksi berada di luar area Warkop Mikita cabang ${branch}.\n\nMohon pastikan Anda sudah berada di warkop untuk memesan.`);
+                            // Validasi Radius 100m
+                            if (distance > CONFIG.maxRadiusMeters) {
+                                alert(`📍 Anda terdeteksi berada di luar area Warkop Mikita cabang ${branch} (Jarak: ${Math.round(distance)}m).\n\nMohon pastikan Anda sudah berada di lokasi warkop untuk memesan.`);
                                 return;
                             }
                             sendToWhatsapp(customerName, tableNo, branch);
                         },
                         (error) => {
                             btnSendWA.innerText = "Konfirmasi & Kirim WA 🚀";
-                            alert("Izin GPS dibutuhkan untuk mengonfirmasi bahwa Anda berada di area Warkop.");
-                        }
+                            alert("Izin lokasi/GPS dibutuhkan untuk memverifikasi bahwa Anda berada di area warkop.");
+                        },
+                        { enableHighAccuracy: true }
                     );
                 } else {
                     sendToWhatsapp(customerName, tableNo, branch);
@@ -544,9 +519,7 @@
                 
                 message += `\n*💰 Total Pembayaran: Rp ${totalPrice.toLocaleString('id-ID')}*\n\nMohon segera diproses ya kak, terima kasih!`;
 
-                // Pilih nomor admin WhatsApp sesuai cabang
                 const phoneAdmin = CONFIG.adminPhone[branch] || "6281804032777";
-                
                 window.open(`https://wa.me/${phoneAdmin}?text=${encodeURIComponent(message)}`, '_blank');
             }
         });
